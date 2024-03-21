@@ -8,7 +8,7 @@ public class Piece : MonoBehaviour
     public int x;
     public int y;
     public Board board;
-
+    AudioSource audioSource;
 
     public enum type
     {
@@ -26,6 +26,11 @@ public class Piece : MonoBehaviour
 
     public type pieceType;
 
+    public void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void Setup(int x_, int y_, Board board_)
     {
         x = x_;
@@ -42,6 +47,10 @@ public class Piece : MonoBehaviour
         {
             x = desX;
             y = desY;
+            if (GameManager.Instance.gameState == GameManager.GameState.InGame)
+            {
+                audioSource.Play();
+            }
         };
     }
 

@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
     public GameObject start;
     public AudioClip backgroundMusic;
     public AudioClip gameStartSound;
-    public AudioClip moveSound;
-    public AudioClip matchSound;
-    public AudioClip missSound;
 
     public AudioSource audioSource;
 
@@ -78,11 +75,13 @@ public class GameManager : MonoBehaviour
 
         if(gameState == GameState.GameOver)
         {
-            audioSource.clip = backgroundMusic;
-            if (audioSource.isPlaying)
+            if (audioSource.clip == backgroundMusic && audioSource.isPlaying)
             {
                 audioSource.Stop();
+                audioSource.clip = gameStartSound;
+                audioSource.Play();
             }
+            
             gameOver.SetActive(true);
         }
     }

@@ -806,7 +806,7 @@ RectTransform:
   m_GameObject: {fileID: 567515308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20.01, y: 20.01, z: 20.01}
+  m_LocalScale: {x: 26.55327, y: 26.55327, z: 26.55327}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1954675903}
@@ -1510,6 +1510,8 @@ MonoBehaviour:
   - {fileID: 6500389263899936332, guid: 115e0a00b9066824b97f7591a3c7740f, type: 3}
   - {fileID: 5340855513625213635, guid: 6050ffad53e42714ebd008a717f16fe7, type: 3}
   - {fileID: 9005323818931029391, guid: 69e066b9341086840a4b09f326d4e0aa, type: 3}
+  matchSound: {fileID: 8300000, guid: aa38eb33707396e4fb477a4a64ee0f93, type: 3}
+  noMatchSound: {fileID: 8300000, guid: 010c96e9f9b38ac448b03c8ea64a1a48, type: 3}
 --- !u!4 &1463607140
 Transform:
   m_ObjectHideFlags: 0
@@ -2462,9 +2464,6 @@ MonoBehaviour:
   start: {fileID: 1954675902}
   backgroundMusic: {fileID: 8300000, guid: fd1260a0228506b408ece5ea1aefd4ca, type: 3}
   gameStartSound: {fileID: 8300000, guid: 4bf508fbc2edc8249be166db48631926, type: 3}
-  moveSound: {fileID: 0}
-  matchSound: {fileID: 0}
-  missSound: {fileID: 0}
   audioSource: {fileID: 0}
   gameState: 0
   points: 0

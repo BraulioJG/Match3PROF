@@ -31,6 +31,9 @@ public class Board : MonoBehaviour
 
     AudioSource audioSource;
 
+    [SerializeField] AudioClip matchSound;
+    [SerializeField] AudioClip noMatchSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -171,6 +174,12 @@ public class Board : MonoBehaviour
 
         if (allMatches.Count == 0)
         {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = noMatchSound;
+                audioSource.Play();
+            }
+
             StarPiece.Move(startTile.x, startTile.y);
             EndPiece.Move(endTile.x, endTile.y);
             Pieces[startTile.x, startTile.y] = StarPiece;
@@ -178,6 +187,12 @@ public class Board : MonoBehaviour
         }
         else
         {
+            if(!audioSource.isPlaying)
+            {
+                audioSource.clip = matchSound;
+                audioSource.Play();
+            }
+            
             ClearPieces(allMatches);
             AwardPoints(allMatches);
             GameManager.Instance.matchSeconds = GameManager.Instance.gameTime;
