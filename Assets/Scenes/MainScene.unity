@@ -971,7 +971,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 74, y: 70}
+  m_AnchoredPosition: {x: 74, y: 43}
   m_SizeDelta: {x: 559.6788, y: 226.3131}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &628787072
@@ -1083,6 +1083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34be13fe988dad34f82ab9369bb740a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayedPoints: 0
   pointsLabel: {fileID: 628787072}
 --- !u!1 &831806001
 GameObject:
@@ -2460,6 +2461,7 @@ MonoBehaviour:
   gameTime: 10
   matchSeconds: 10
   secondsForMatchStart: 5
+  currentSecondsForMatchStart: 5
   gameOver: {fileID: 170367363}
   start: {fileID: 1954675902}
   backgroundMusic: {fileID: 8300000, guid: fd1260a0228506b408ece5ea1aefd4ca, type: 3}

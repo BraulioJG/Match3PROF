@@ -35,7 +35,7 @@ public class Board : MonoBehaviour
     [SerializeField] AudioClip noMatchSound;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         Tiles = new Tile[width, height];
         Pieces = new Piece[width, height];
@@ -49,7 +49,7 @@ public class Board : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    private IEnumerator SetupPieces()
+    public IEnumerator SetupPieces()
     {
         int maxIterations = 50;
         int currentIteration = 0;
@@ -110,7 +110,7 @@ public class Board : MonoBehaviour
 
     }
 
-    private void SetupBoard()
+    public void SetupBoard()
     {
         for (int x = 0; x < width; x++)
         {
@@ -214,6 +214,14 @@ public class Board : MonoBehaviour
         List<int> columns = GetColumns(piecesToClear);
         List<Piece> collapsedPieces = collapseColumns(columns, 0.2f);
         FindMatchsRecursively(collapsedPieces);
+    }
+
+    public void ClearAllPieces()
+    {
+        foreach(Piece p in Pieces)
+        {
+            ClearPieceAt(p.x, p.y);
+        }
     }
 
     private void FindMatchsRecursively(List<Piece> collapsedPieces)

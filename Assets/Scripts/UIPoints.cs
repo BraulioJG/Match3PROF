@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIPoints : MonoBehaviour
 {
-    int displayedPoints;
+    public int displayedPoints;
     public TextMeshProUGUI pointsLabel;
 
     private void Start()
@@ -13,7 +13,7 @@ public class UIPoints : MonoBehaviour
         GameManager.Instance.OnPointsUpdated.AddListener(UpdatedPoints);
     }
 
-    private void UpdatedPoints()
+    public void UpdatedPoints()
     {
         StartCoroutine("UpdatedPointsCoroutine");
     }

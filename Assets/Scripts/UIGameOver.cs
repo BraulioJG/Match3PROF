@@ -2,11 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class UIGameOver : MonoBehaviour
 {
     [SerializeField] TMP_Text pointsText;
+
+    Board board;
+
+    UIPoints uiPoints;
+
+    private void Start()
+    {
+        board = GameObject.Find("Board").GetComponent<Board>();
+        uiPoints = GameObject.Find("UI").transform.GetChild(0).GetComponent<UIPoints>();
+    }
 
     private void Update()
     {
@@ -15,8 +24,14 @@ public class UIGameOver : MonoBehaviour
 
     public void PlayAgain()
     {
-        SceneManager.UnloadSceneAsync(0);
-        SceneManager.LoadScene(0);
+        GameManager.Instance.points = 0;
+        uiPoints.displayedPoints = 0;
+        uiPoints.pointsLabel.text = "0";
+        GameManager.Instance.matchSeconds = GameManager.Instance.gameTime;
+        GameManager.Instance.gameState = GameManager.GameState.InGame;
+        board.ClearAllPieces();
+        board.Start();
+        GameManager.Instance.currentSecondsForMatchStart = GameManager.Instance.secondsForMatchStart;
     }
 
     public void ExitGame()

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public float gameTime = 10;
     public float matchSeconds = 10;
     public float secondsForMatchStart = 5;
+    public float currentSecondsForMatchStart = 5;
     public GameObject gameOver;
     public GameObject start;
     public AudioClip backgroundMusic;
@@ -55,14 +56,15 @@ public class GameManager : MonoBehaviour
 
         if (gameState == GameState.InGame)
         {
+            gameOver.SetActive(false);
             audioSource.clip = backgroundMusic;
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
             }
-            secondsForMatchStart = secondsForMatchStart - Time.deltaTime;
+            currentSecondsForMatchStart = currentSecondsForMatchStart - Time.deltaTime;
             start.SetActive(false);
-            if (secondsForMatchStart <= 0)
+            if (currentSecondsForMatchStart <= 0)
             {
                 matchSeconds = matchSeconds - Time.deltaTime;
             }
